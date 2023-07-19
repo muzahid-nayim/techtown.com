@@ -1,0 +1,62 @@
+{% extends "root.html" %}
+{% block content %}
+    {% include 'helpers/_home-nav.html' %}
+    <!-- START HEADER  -->
+    <header>
+        <div class="container header-container rounded p-5">
+            <div class="row">
+                <div class="col-md-6 p-5 d-flex justify-content-center align-item-center flex-column">
+                    <h2 class="discover-text">Discover</h2>
+                    <h3 class="latest-text">The Latest Mobile Devices at</h3>
+                    <h1 class="logo">
+                        <span class="T">T</span>ech<span class="T">T</span>own
+                    </h1>
+                    <p class="explore-text">Explore a Wide Range of Mobile Phones and Gadgets</p>
+                    <div class="header-social-container">
+                        <ul class="d-flex my-1 p-0">
+                            <li class="mx-1">
+                                <a class="text-color" href="#"><i class='bx bxl-facebook-square bx-md'></i></a>
+                            </li>
+                            <li class="mx-1">
+                                <a class="text-color" href="#"><i class='bx bxl-youtube bx-md'></i></a>
+                            </li>
+                            <li class="mx-1">
+                                <a class="text-color" href="#"><i class='bx bxl-instagram-alt bx-md'></i></a>
+                            </li>
+                            <li class="mx-1">
+                                <a class="text-color" href="#"><i class='bx bxl-twitter bx-md'></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 p-5">
+                    <img class="col-12"
+                         src="{{ url_for('static', filename='image/iphone12.png') }}"
+                         alt="">
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- END HEADER  -->
+    <!-- START MAIN  -->
+    <main class="my-4">
+        <div class="container">
+            <div class="brand-section">
+                <h3 class="text-center">Popular Brands</h3>
+                <div class="brand-item d-flex flex-wrap">
+                    <a class="badge badge-info m-1 p-2 opacity-75" href="#">Samsung</a>
+                    <a class="badge badge-info m-1 p-2 opacity-75" href="#">Apple</a>
+                    <a class="badge badge-info m-1 p-2 opacity-75" href="#">Xaomi</a>
+                    <a class="badge badge-info m-1 p-2 opacity-75" href="#">Redme</a>
+                    <a class="badge badge-info m-1 p-2 opacity-75" href="#">Tecno</a>
+                    <a class="badge badge-info m-1 p-2 opacity-75" href="#">Oneplus</a>
+                    <a class="badge badge-info m-1 p-2 opacity-75" href="#">Google</a>
+                    <a class="badge badge-info m-1 p-2 opacity-75" href="#">Asus</a>
+                    <a class="badge badge-info m-1 p-2 opacity-75" href="#">Honor</a>
+                    <a class="badge badge-info m-1 p-2 opacity-75" href="#">Walton</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- END MAIN  -->
+{% endblock content %}
