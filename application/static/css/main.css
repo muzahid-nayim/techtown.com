@@ -1,8 +1,7 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Tektur&display=swap');
 
 
-:root{
+:root {
   --background-color: #AAF5F6;
   --yellow-color: #fc6722;
   --violet-color: #8683ca;
@@ -10,81 +9,115 @@
 }
 
 /* START CUSTOM  */
-.bdr{
-    border: red 2px solid;
+.bdr {
+  border: red 2px solid;
 }
-.yellow-btn{
+
+.yellow-btn {
   background-color: var(--yellow-color) !important;
 }
-ul{
+
+ul {
   list-style-type: none;
 }
-li{
+
+li {
   margin: 0;
   padding: 0;
 }
-.text-color{
+
+.text-color {
   color: var(--text-color);
 }
-a{
+
+a {
   text-decoration: none !important;
 }
+
 /* END CUSTOM  */
 
 /* START  NAVBAR */
 .home-top-nav {
-    /* Initial style */
-    box-shadow: none;
-  }
+  /* Initial style */
+  box-shadow: none;
+}
 
 .home-top-nav.scrolled {
-    /* Style when scrolled */
-    box-shadow: 2px 2px 5px rgb(189, 187, 187);
-  }
+  /* Style when scrolled */
+  box-shadow: 2px 2px 5px rgb(189, 187, 187);
+}
 
 /* END  NAVBAR */
 
 
- /* START HEADER  */
-header{
+/* START HEADER  */
+header {
   margin-top: 70px;
 }
-.header-container{
+
+.header-container {
   background: var(--background-color);
 }
-.discover-text{
+
+.discover-text {
   color: var(--yellow-color);
 }
-.latest-text{
+
+.latest-text {
   color: var(--violet-color);
 }
-.logo{
+
+.logo {
   font-family: 'Tektur', cursive;
   color: var(--text-color);
 }
-.explore-text{
+
+.explore-text {
   color: var(--text-color);
 }
-.T{
+
+.T {
   color: var(--yellow-color);
 }
- /* END HEADER  */
+.brand-text{
+  font-weight: 100 !important;
+  font-size: 17px !important;
+}
+/* END HEADER  */
 
-
-
-
-
- /* ==========4. START MEDIA QUARY ============  */
-@media screen and (min-width: 992px) {
- 
+/* START DASHBOARD  */
+.dashboard-sidebar {
+  background-color: var(--violet-color);
 }
 
-@media screen and (max-width: 992px) {
-
+.sider-link {
+  height: 100vh;
 }
 
-@media screen and (max-width: 778px) {
-
+.sider-link li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: all .2s;
+  padding-left: 10px;
 }
+
+.sider-link li:hover {
+  background: turquoise;
+  padding-left: 20px;
+}
+
+#logout:hover{
+background: red;
+}
+/* END DASHBOARD  */
+
+
+
+/* ==========4. START MEDIA QUARY ============  */
+@media screen and (min-width: 992px) {}
+
+@media screen and (max-width: 992px) {}
+
+@media screen and (max-width: 778px) {}
 
 /* ========== END MEDIA QUARY ============  */

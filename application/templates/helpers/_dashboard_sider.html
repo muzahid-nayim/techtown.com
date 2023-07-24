@@ -1,0 +1,25 @@
+<div id="sidebarMenu"
+     class="col-md-3 col-lg-2 border d-md-block px-0 dashboard-sidebar side-nav sticky-top py-3">
+    <a class="py-3" href="{{ url_for("public.index") }}">
+        <h3 class="logo px-3 py-3">
+            <span class="T">T</span>ech<span class="T">T</span>own
+        </h3>
+    </a>
+    <ul class="sider-link p-0 m-0">
+        <li class="border">
+            <a class="d-block text-white" href="{{ url_for("admin.adminDashboard") }}">♦️ Dashboard</a>
+        </li class="border">
+        <li>
+            <a class="d-block text-white" href="{{ url_for("admin.brands") }}">♦️ Brands</a>
+        </li>
+        <li class="border">
+            <a class="d-block text-white" href="{{ url_for("admin.products") }}">♦️ Products</a>
+        </li>
+        <li id="logout" >
+            <a class="d-block text-white" href="{{ url_for("auth.logout") }}">♦️ Logout</a>
+        </li>
+        <li class="border">
+            <a class="d-block text-white" href="#">♦️ Link</a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,82 @@
+{% extends "root.html" %}
+{% block content %}
+    <!-- START HEADER  -->
+    <div class=" d-flex account-topbar bg-light justify-content-between align-items-center gap-2 d-md-none p-2">
+        <div class="topbar-left  d-flex  justify-content-start align-items-center">
+            <a class="navbar-brand d-block m-0 p-0 d-md-none"
+               href="{{ url_for("public.index") }}">
+                <h4 class="logo">
+                    <span class="T">T</span>ech<span class="T">T</span>own
+                </h4>
+            </a>
+        </div>
+        <button class="d-md-none"
+                type="button"
+                data-toggle="collapse"
+                data-target="#sidebarMenu">
+            <i class='bx bx-menu' style="font-size: 35px;"></i>
+        </button>
+    </div>
+    <!-- END HEADER  -->
+    <!-- START DASHBOARD CONTENT  -->
+    <div class="container-fluid">
+        <div class="row">
+            {% include 'helpers/_dashboard_sider.html' %}
+            <div class="col-md-9 col-lg-10 p-0">
+                <!-- START BRAND HEADER   -->
+                <div class="d-flex justify-content-between align-content-center bg-secondary bg-opacity-10 p-2">
+                    <h2 class="my-2">Brands</h2>
+                    <a class="d-flex align-items-center"
+                       href="{{ url_for("admin.addBrand") }}">
+                        <i class='bx bxs-plus-square bx-md'></i>
+                        Add Brand
+                    </a>
+                </div>
+                <!-- END BRAND HEADER   -->
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Brand</th>
+                            <th>Logo</th>
+                            <th>Method</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for brand in brands %}
+                            <tr>
+                                <td>{{ loop.index }}</td>
+                                <td>{{ brand.name }}</td>
+                                <!-- BRAND LOGO  -->
+                                <td>
+                                    {% if brand.logo %}
+                                        <img src="{{ url_for('static', filename='brand_logos/' + brand.logo) }}"
+                                             alt="{{ brand.name }} Logo"
+                                             width="100px">
+                                    {% else %}
+                                        <img src="{{ url_for('static', filename='brand_logos/default.jpg') }}"
+                                             alt="Placeholder Logo"
+                                             width="150px">
+                                    {% endif %}
+                                </td>
+                                <td class="d-flex">
+                                    <form class="mx-1" action="{{ url_for('admin.delete_brand', brand_id=brand.id) }}"
+                                          method="post">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                    <form class="mx-1" action="{{ url_for('admin.edit_brand', brand_id=brand.id) }}"
+                                          method="post">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <button type="submit" class="btn btn-primary">Edit</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- END DASHBOARD CONTENT  -->
+{% endblock content %}

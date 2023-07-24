@@ -1,4 +1,57 @@
 {% extends "root.html" %}
+
 {% block content %}
-    <h1>Dashboard</h1>
+<!-- START HEADER  -->
+<div class=" d-flex account-topbar bg-light justify-content-between align-items-center gap-2 d-md-none p-2">
+    <div class="topbar-left  d-flex  justify-content-start align-items-center">
+        <a class="navbar-brand d-block m-0 p-0 d-md-none" href="{{ url_for('public.index') }}">
+            <h4 class="logo">
+                <span class="T">T</span>ech<span class="T">T</span>own
+            </h4>
+        </a>
+    </div>
+    <button class="d-md-none" type="button" data-toggle="collapse" data-target="#sidebarMenu">
+        <i class='bx bx-menu' style="font-size: 35px;"></i>
+    </button>
+</div>
+<!-- END HEADER  -->
+
+<!-- START DASHBOARD CONTENT  -->
+    <div class="container-fluid">
+        <div class="row">
+            {% include 'helpers/_dashboard_sider.html' %}
+            <div class="col-md-9 col-lg-10">
+                <h2 class="my-2">Dashboard</h2>
+                <!-- START TOP CARD AREA  -->
+               <div class="top-card-area py-3">
+                <div class="row">
+                    <!-- BRANDS CARD  -->
+                    <div class="col-md-4 my-1">
+                        <div class="card text-center p-2 bg-primary text-white">
+                            <h3>Brands</h3>
+                            <h2>{{ brands|length }}</h2>
+                        </div>
+                    </div>
+                    <!-- PRODUCTS CARD  -->
+                    <div class="col-md-4 my-1">
+                        <div class="card text-center p-2 bg-danger text-white">
+                            <h3>Products</h3>
+                            <h2>255</h2>
+                        </div>
+                    </div>
+                    <!-- CATEGORY CARD  -->
+                    <div class="col-md-4 my-1">
+                        <div class="card text-center p-2 bg-info text-white">
+                            <h3>Category</h3>
+                            <h2>2</h2>
+                        </div>
+                    </div>
+                </div>
+               </div>
+                <!-- END TOP CARD AREA  -->
+            </div>
+        </div>
+    </div>
+<!-- END DASHBOARD CONTENT  -->
+
 {% endblock content %}

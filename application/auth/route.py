@@ -2,7 +2,7 @@ from flask import Blueprint,render_template, redirect, url_for,flash
 from application.auth.forms import RegistrationForm,LoginForm
 from application.models import User
 from application import bcrypt,db
-
+from flask_login import login_user, current_user,logout_user,login_required
 auth = Blueprint('auth', __name__)
 
 
@@ -28,7 +28,6 @@ def signUp():
 
     return render_template('auth/sign-up.html', form=form)
 
-
 @auth.route('/login/', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
@@ -46,10 +45,17 @@ def login():
             return redirect(url_for('auth.login'))
 
         # User is authenticated, perform login
-        # Add your login logic here, such as setting session variables or creating a login session
+        login_user(user)
 
         flash('Logged in successfully!', 'success')
         return redirect(url_for('public.index'))
 
-    return render_template('auth/sign-in.html',form=form)
+    return render_template('auth/sign-in.html', form=form)
 
+
+
+@auth.route("/logout/")
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('public.index'))

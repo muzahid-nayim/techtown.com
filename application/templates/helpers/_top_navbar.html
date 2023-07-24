@@ -22,14 +22,23 @@
                 <li class="nav-item">
                     <a class="nav-link btn m-1" href="#">About</a>
                 </li>
-                <li class="nav-item d-flex justify-content-center align-item-center">
-                    <a class="nav-link btn btn-outline-primary py-1 px-2 btn-sm m-1 mt-md-2 aut-button"
-                       href="#">Sign In</a>
+                <li class="nav-item">
+                    <a class="nav-link btn m-1" href="#">Contact</a>
                 </li>
-                <li class="nav-item d-flex justify-content-center align-item-center">
-                    <a class="nav-link btn btn-outline-primary py-1 px-2 btn-sm m-1 mt-md-2 aut-button"
-                       href="#">Sign Up</a>
+                {% if current_user.is_authenticated%}
+                <li>
+                    <a href="#">
+                        <img class="rounded-circle border" src="https://t3.ftcdn.net/jpg/00/75/33/10/360_F_75331081_axIcnWZnT1RbSsPGlgLQaCftelG158KV.jpg" alt="profile image" width="40px" height="40px">
+                    </a>
                 </li>
+                {% else%}
+                <li class="nav-item">
+                    <a class="nav-link btn m-1 text-primary" href="{{url_for('auth.signUp')}}">Signup</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn m-1 text-primary" href="{{url_for('auth.login')}}">Login</a>
+                </li>
+                {% endif %}
             </ul>
         </div>
     </div>

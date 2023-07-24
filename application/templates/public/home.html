@@ -1,6 +1,9 @@
 {% extends "root.html" %}
 {% block content %}
-    {% include 'helpers/_home-nav.html' %}
+<!-- START NAVIGATION  -->
+{% include 'helpers/_top_navbar.html' %}
+<!-- END NAVIGATION  -->
+
     <!-- START HEADER  -->
     <header>
         <div class="container header-container rounded p-5">
@@ -38,24 +41,21 @@
         </div>
     </header>
     <!-- END HEADER  -->
+
     <!-- START MAIN  -->
     <main class="my-4">
         <div class="container">
+            <!-- START BRAND SECTION  -->
             <div class="brand-section">
                 <h3 class="text-center">Popular Brands</h3>
+                <!-- BRAND LIST  -->
                 <div class="brand-item d-flex flex-wrap">
-                    <a class="badge badge-info m-1 p-2 opacity-75" href="#">Samsung</a>
-                    <a class="badge badge-info m-1 p-2 opacity-75" href="#">Apple</a>
-                    <a class="badge badge-info m-1 p-2 opacity-75" href="#">Xaomi</a>
-                    <a class="badge badge-info m-1 p-2 opacity-75" href="#">Redme</a>
-                    <a class="badge badge-info m-1 p-2 opacity-75" href="#">Tecno</a>
-                    <a class="badge badge-info m-1 p-2 opacity-75" href="#">Oneplus</a>
-                    <a class="badge badge-info m-1 p-2 opacity-75" href="#">Google</a>
-                    <a class="badge badge-info m-1 p-2 opacity-75" href="#">Asus</a>
-                    <a class="badge badge-info m-1 p-2 opacity-75" href="#">Honor</a>
-                    <a class="badge badge-info m-1 p-2 opacity-75" href="#">Walton</a>
+                    {% for brand in brands%}
+                    <a class="badge badge-info m-1 p-2 opacity-75 brand-text " href="#">{{brand.name}}</a>
+                    {% endfor%}
                 </div>
             </div>
+            <!-- END BRAND SECTION  -->
         </div>
     </main>
     <!-- END MAIN  -->

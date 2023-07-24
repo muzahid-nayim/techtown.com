@@ -5,6 +5,9 @@
         <meta charset="utf-8">
         <meta name="viewport"
               content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                <!-- favicon  -->
+        <link rel="shortcut icon" href="https://media.istockphoto.com/id/1168998637/vector/twins-logo-design.jpg?s=612x612&w=0&k=20&c=AARTtCl4HODW0tan5lXZWHdVwBZ7xS8GsA_wf7h1xHo=">
+
         <!-- Bootstrap CSS -->
         <link rel="stylesheet"
               href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -27,6 +30,7 @@
         {% endif %}
     </head>
     <body>
+        
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
                 {% for category, message in messages %}<div class="alert alert-{{ category }}">{{ message }}</div>{% endfor %}
