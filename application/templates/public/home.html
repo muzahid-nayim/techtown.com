@@ -1,9 +1,8 @@
 {% extends "root.html" %}
 {% block content %}
-<!-- START NAVIGATION  -->
-{% include 'helpers/_top_navbar.html' %}
-<!-- END NAVIGATION  -->
-
+    <!-- START NAVIGATION  -->
+    {% include 'helpers/_top_navbar.html' %}
+    <!-- END NAVIGATION  -->
     <!-- START HEADER  -->
     <header>
         <div class="container header-container rounded p-5">
@@ -41,7 +40,6 @@
         </div>
     </header>
     <!-- END HEADER  -->
-
     <!-- START MAIN  -->
     <main class="my-4">
         <div class="container">
@@ -50,12 +48,49 @@
                 <h3 class="text-center">Popular Brands</h3>
                 <!-- BRAND LIST  -->
                 <div class="brand-item d-flex flex-wrap">
-                    {% for brand in brands%}
-                    <a class="badge badge-info m-1 p-2 opacity-75 brand-text " href="#">{{brand.name}}</a>
-                    {% endfor%}
+                    {% for brand in brands %}
+                        <a class="badge badge-info m-1 p-2 opacity-75 brand-text " href="#">{{ brand.name }}</a>
+                    {% endfor %}
                 </div>
             </div>
             <!-- END BRAND SECTION  -->
+            <!-- START PRODUCT SECTION  -->
+            <div class="product my-5">
+                <!-- START CARD CONTAINER  -->
+                <div class="row g-3">
+                    {% for product in products %}
+                        <!-- ============================== -->
+                        <div class="col-md-4 col-lg-3 text-center d-flex justify-content-center">
+                            <!-- START SINGLE CARD  -->
+                            <div class="card" style="max-width: 300px;">
+                                {% if product.image_file %}
+                                        <img class="card-img-top col-12" src="{{ url_for('static', filename='product_images/' + product.image_file) }}"
+                                             alt=" image"
+                                             width="100px">
+                                    {% else %}
+                                        <img class="card-img-top col-12" src="{{ url_for('static', filename='product_images/default.jpg') }}"
+                                             alt="Placeholder Logo"
+                                             width="150px">
+                                    {% endif %}
+                                    <!-- <img src="{{ url_for('static', filename='product_images/' + product.image_file) }}" alt=""> -->
+                                <div class="card-body">
+                                    <!-- <h2>{{product.image_file}}</h2> -->
+                                    <h5 class="card-title">{{ product.model }}</h5>
+                                    <p class="card-text">
+                                        <span class="fw-bold">৳{{ product.price }}</span> {{ product.storage.ram }}/{{ product.storage.rom }}
+                                    </p>
+                                    <a href="#" class="btn btn-primary">Buy</a>
+                                </div>
+                            </div>
+                            <!-- END SINGLE CARD  -->
+                        </div>
+                        <!-- ============================= -->
+                    {% endfor %}
+                </div>
+                <!-- END CARD CONTAINER  -->
+            </div>
+            <!-- END PRODUCT SECTION  -->
+            <div class="product"></div>
         </div>
     </main>
     <!-- END MAIN  -->

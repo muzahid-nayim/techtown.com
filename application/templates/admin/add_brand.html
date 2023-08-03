@@ -23,15 +23,16 @@
         <div class="row">
             {% include 'helpers/_dashboard_sider.html' %}
             <div class="col-md-9 col-lg-10 p-0">
-                <!-- START BRAND HEADER   -->
+                <div class="container">
+                    <!-- START BRAND HEADER   -->
                 <h3 class="my-2">Add Brands</h3>
                 <!-- END BRAND HEADER   -->
                 <form method="POST" action="" enctype="multipart/form-data">
                     {{ form.hidden_tag() }}
                     <div class="form-group">
-                        {{ form.name.label(class="form-label") }}
-                        {{ form.name(class="form-control") }}
-                        {% for error in form.name.errors %}
+                        {{ form.brand_name.label(class="form-label") }}
+                        {{ form.brand_name(class="form-control") }}
+                        {% for error in form.brand_name.errors %}
                             <span class="text-danger">{{ error }}</span>
                         {% endfor %}
                     </div>
@@ -46,6 +47,7 @@
                         {{ form.submit(class="btn btn-primary") }}
                     </div>
                 </form>
+                </div>
             </div>
         </div>
     </div>

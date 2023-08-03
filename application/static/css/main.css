@@ -43,8 +43,12 @@ a {
 }
 
 .home-top-nav.scrolled {
-  /* Style when scrolled */
   box-shadow: 2px 2px 5px rgb(189, 187, 187);
+}
+.sider-link li{
+  background-color: #655ec7;
+  margin-top: 5px;
+  /* border: 1px solid #2317d4; */
 }
 
 /* END  NAVBAR */

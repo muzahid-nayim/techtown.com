@@ -1,30 +1,175 @@
 {% extends "root.html" %}
-
 {% block content %}
-<!-- START HEADER  -->
-<div class=" d-flex account-topbar bg-light justify-content-between align-items-center gap-2 d-md-none p-2">
-    <div class="topbar-left  d-flex  justify-content-start align-items-center">
-        <a class="navbar-brand d-block m-0 p-0 d-md-none" href="{{ url_for('public.index') }}">
-            <h4 class="logo">
-                <span class="T">T</span>ech<span class="T">T</span>own
-            </h4>
-        </a>
+    <!-- START HEADER  -->
+    <div class=" d-flex account-topbar bg-light justify-content-between align-items-center gap-2 d-md-none p-2">
+        <div class="topbar-left  d-flex  justify-content-start align-items-center">
+            <a class="navbar-brand d-block m-0 p-0 d-md-none"
+               href="{{ url_for("public.index") }}">
+                <h4 class="logo">
+                    <span class="T">T</span>ech<span class="T">T</span>own
+                </h4>
+            </a>
+        </div>
+        <button class="d-md-none"
+                type="button"
+                data-toggle="collapse"
+                data-target="#sidebarMenu">
+            <i class='bx bx-menu' style="font-size: 35px;"></i>
+        </button>
     </div>
-    <button class="d-md-none" type="button" data-toggle="collapse" data-target="#sidebarMenu">
-        <i class='bx bx-menu' style="font-size: 35px;"></i>
-    </button>
-</div>
-<!-- END HEADER  -->
-
-<!-- START DASHBOARD CONTENT  -->
+    <!-- END HEADER  -->
+    <!-- START DASHBOARD CONTENT  -->
     <div class="container-fluid">
         <div class="row">
             {% include 'helpers/_dashboard_sider.html' %}
-            <div class="col-md-9 col-lg-10">
-                <h2 class="my-2">Product</h2>
+            <div class="col-md-9 col-lg-10 p-0">
+                <div class="d-flex justify-content-between align-content-center bg-secondary bg-opacity-10 p-2">
+                    <h2 class="">Products</h2>
+                    <a class="d-flex align-items-center"
+                       href="{{ url_for("admin.add_product") }}">
+                        <i class='bx bxs-plus-square bx-md'></i>
+                        Add Product
+                    </a>
+                </div>
+                <div class="container mt-5">
+                    <div class="table-responsive">
+                        <table class="table-bordered table table-striped ">
+                            <thead class="bg-dark text-white">
+                                <tr>
+                                    <th class="px-1 rounded-start">SL</th>
+                                    <th class="px-1">model</th>
+                                    <th class="px-1">Image</th>
+                                    <th class="px-1">Price</th>
+                                    <th class="px-1">Brand</th>
+                                    <th class="px-1">Made in</th>
+                                    <th class="px-1">First Release</th>
+                                    <th class="px-1">Color</th>
+                                    <th class="px-1">Network</th>
+                                    <th class="px-1">SIM</th>
+                                    <th class="px-1">WLAN</th>
+                                    <th class="px-1">Bluetooth</th>
+                                    <th class="px-1">GPS</th>
+                                    <th class="px-1">Radio</th>
+                                    <th class="px-1">USB</th>
+                                    <th class="px-1">OTG</th>
+                                    <th class="px-1">USB type c</th>
+                                    <th class="px-1">NFC</th>
+                                    <th class="px-1">Body Style</th>
+                                    <th class="px-1">Material</th>
+                                    <th class="px-1">Water Resistance</th>
+                                    <th class="px-1">Dimensions</th>
+                                    <th class="px-1">Weight</th>
+                                    <th class="px-1">Dis Size </th>
+                                    <th class="px-1">Dis Resolution</th>
+                                    <th class="px-1">dis Technology</th>
+                                    <th class="px-1">Dis Protection</th>
+                                    <th class="px-1">Dis Features</th>
+                                    <th class="px-1">Bc Resolution</th>
+                                    <th class="px-1">Bc Features</th>
+                                    <th class="px-1">Bc VidRec</th>
+                                    <th class="px-1">Fc Resolution</th>
+                                    <th class="px-1">Fc Features</th>
+                                    <th class="px-1">Fc VidRec</th>
+                                    <th class="px-1">Battery</th>
+                                    <th class="px-1">Fast Charging</th>
+                                    <th class="px-1">OS</th>
+                                    <th class="px-1">Chipset</th>
+                                    <th class="px-1">Processor</th>
+                                    <th class="px-1">Speed</th>
+                                    <th class="px-1">GPU</th>
+                                    <th class="px-1">RAM</th>
+                                    <th class="px-1">ROM</th>
+                                    <th class="px-1">MicroSD</th>
+                                    <th class="px-1">3.5mm Jack</th>
+                                    <th class="px-1">Sound Features</th>
+                                    <th class="px-1">Fingerprint</th>
+                                    <th class="px-1">Face Unlock </th>
+                                    <th class="px-1">Notification LED</th>
+                                    <th class="px-1">Sensors</th>
+                                    <th class="px-1">Methods</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for product in products%}
+                                <tr>
+                                    <td class="px-1">{{loop.index}}</td>
+                                    <td class="px-1">{{product.model}}</td>
+                                    <td class="px-1">{% if product.image_file %}
+                                        <img class="card-img-top col-12" src="{{ url_for('static', filename='product_images/' + product.image_file) }}"
+                                             alt=" image"
+                                             width="100px">
+                                    {% else %}
+                                        <img class="card-img-top col-12" src="{{ url_for('static', filename='product_images/default.jpg') }}"
+                                             alt="Placeholder Logo"
+                                             width="150px">
+                                    {% endif %}</td>
+                                    <td class="px-1">{{product.price}}</td>
+                                    <td class="px-1">{{product.manufactured_by}}</td>
+                                    <td class="px-1">{{product.made_in}}</td>
+                                    <td class="px-1">{{product.first_release}}</td>
+                                    <td class="px-1">{{product.colors}}</td>
+                                    <td class="px-1">{{product.connectivity.network}}</td>
+                                    <td class="px-1">{{product.connectivity.sim}}</td>
+                                    <td class="px-1">{{product.connectivity.wlan}}</td>
+                                    <td class="px-1">{{product.connectivity.bluetooth}}</td>
+                                    <td class="px-1">{{product.connectivity.gps}}</td>
+                                    <td class="px-1">{{product.connectivity.radio}}</td>
+                                    <td class="px-1">{{product.connectivity.usb}}</td>
+                                    <td class="px-1">{{product.connectivity.otg}}</td>
+                                    <td class="px-1">{{product.connectivity.usb_type_c}}</td>
+                                    <td class="px-1">{{product.connectivity.nfc}}</td>
+                                    <td class="px-1">{{product.body.style}}</td>
+                                    <td class="px-1">{{product.body.material}}</td>
+                                    <td class="px-1">{{product.body.water_resistance}}</td>
+                                    <td class="px-1">{{product.body.dimensions}}</td>
+                                    <td class="px-1">{{product.body.weight}}</td>
+                                    <td class="px-1">{{product.display.size}}</td>
+                                    <td class="px-1">{{product.display.resolution}}</td>
+                                    <td class="px-1">{{product.display.technology}}</td>
+                                    <td class="px-1">{{product.display.protection}}</td>
+                                    <td class="px-1">{{product.display.features}}</td>
+                                    <td class="px-1">{{product.back_camera.resolution}}</td>
+                                    <td class="px-1">{{product.back_camera.features}}</td>
+                                    <td class="px-1">{{product.back_camera.video_recording}}</td>
+                                    <td class="px-1">{{product.front_camera.resolution}}</td>
+                                    <td class="px-1">{{product.front_camera.features}}</td>
+                                    <td class="px-1">{{product.front_camera.video_recording}}</td>
+                                    <td class="px-1">{{product.battery.type_capacity}}</td>
+                                    <td class="px-1">{{product.battery.fast_charging}}</td>
+                                    <td class="px-1">{{product.performance.operating_system}}</td>
+                                    <td class="px-1">{{product.performance.chipset}}</td>
+                                    <td class="px-1">{{product.performance.processor}}</td>
+                                    <td class="px-1">{{product.performance.speed}}</td>
+                                    <td class="px-1">{{product.performance.gpu}}</td>
+                                    <td class="px-1">{{product.storage.ram}}</td>
+                                    <td class="px-1">{{product.storage.rom}}</td>
+                                    <td class="px-1">{{product.storage.microsd_slot}}</td>
+                                    <td class="px-1">{{product.sound.jack_3_5mm}}</td>
+                                    <td class="px-1">{{product.sound.features}}</td>
+                                    <td class="px-1">{{product.security.fingerprint}}</td>
+                                    <td class="px-1">{{product.security.face_unlock}}</td>
+                                    <td class="px-1">{{product.others.notification_light}}</td>
+                                    <td class="px-1">{{product.others.sensors}}</td>
+                                    <td class="px-1 d-flex">
+                                        <form class="mx-1" action="{{ url_for('admin.delete_product', product_id=product.id) }}"
+                                          method="post">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                    <form class="mx-1" action="{{ url_for('admin.edit_product', product_id=product.id) }}"
+                                          method="post">
+                                        <input type="hidden" name="_method" value="EDIT">
+                                        <button type="submit" class="btn btn-primary">Edit</button>
+                                    </form>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-<!-- END DASHBOARD CONTENT  -->
-
+    <!-- END DASHBOARD CONTENT  -->
 {% endblock content %}

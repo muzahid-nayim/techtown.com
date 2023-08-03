@@ -29,9 +29,9 @@
                 <form method="POST" action="" enctype="multipart/form-data">
                     {{ form.hidden_tag() }}
                     <div class="form-group">
-                        {{ form.name.label(class="form-label") }}
-                        {{ form.name(class="form-control") }}
-                        {% for error in form.name.errors %}
+                        {{ form.brand_name.label(class="form-label") }}
+                        {{ form.brand_name(class="form-control") }}
+                        {% for error in form.brand_name.errors %}
                             <span class="text-danger">{{ error }}</span>
                         {% endfor %}
                     </div>

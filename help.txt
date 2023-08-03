@@ -1,0 +1,62 @@
+Every mobile should have those information 
+
+Product
+♦️First Release [type = String]
+♦️Colors [type = String]
+Connectivity
+♦️Network [type = string]
+♦️SIM [type = string]
+♦️WLAN [type = string]
+♦️Bluetooth [type = string]
+♦️GPS [type = string]
+♦️Radio [type = string]
+♦️USB [type = string]
+♦️OTG [type = Boolean]
+♦️USB Type-C [type = Boolean]
+♦️NFC [type = Boolean]
+Body
+♦️Style [type = string]
+♦️Material [type = string]
+♦️Water Resistance [type = string]
+♦️Dimensions [type = string]
+♦️Weight [type = string]
+Display
+♦️Size [type = string]
+♦️Resolution [type = string]
+♦️Technology [type = string]
+♦️Protection [type = string]
+♦️Features [type = string]
+Back Camera
+♦️Resolution [type = string]
+♦️Features [type = string]
+♦️Video Recording [type = string]
+Front Camera
+♦️Resolution [type = string]
+♦️Features [type = string]
+♦️Video Recording [type = string]
+ Battery
+♦️Type and Capacity [type = string]
+♦️Fast Charging [type = string]
+Performance
+♦️Operating System [type = string]
+♦️Chipset [type = string]
+♦️Processor [type = string]
+♦️Speed [type = string]
+♦️GPU [type = string]
+  Storage
+♦️RAM [type = string]
+♦️ROM [type = string]
+♦️MicroSD Slot [type = string]
+ Sound
+♦️3.5mm Jack [type = string]
+♦️Features [type = string]
+  Security
+♦️Fingerprint [type = string]
+♦️Face Unlock [type = string]
+Others
+♦️Notification Light [type = string]
+♦️Sensors [type = string]
+♦️Manufactured by [type = string]# I will select from dropdown menu
+♦️Made in [type = string]
+
+

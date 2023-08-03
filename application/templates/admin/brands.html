@@ -36,7 +36,7 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>SN</th>
                             <th>Brand</th>
                             <th>Logo</th>
                             <th>Method</th>
@@ -67,7 +67,7 @@
                                     </form>
                                     <form class="mx-1" action="{{ url_for('admin.edit_brand', brand_id=brand.id) }}"
                                           method="post">
-                                        <input type="hidden" name="_method" value="DELETE">
+                                        <input type="hidden" name="_method" value="EDIT">
                                         <button type="submit" class="btn btn-primary">Edit</button>
                                     </form>
                                 </td>

@@ -5,6 +5,7 @@
                 <span class="T">T</span>ech<span class="T">T</span>own
             </h2>
         </a>
+        <!-- NAVBAR COLLAPS BUTTON  -->
         <button class="navbar-toggler"
                 type="button"
                 data-bs-toggle="collapse"
@@ -14,6 +15,7 @@
                 aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <!-- NAVBAR ITEM  -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
@@ -25,19 +27,25 @@
                 <li class="nav-item">
                     <a class="nav-link btn m-1" href="#">Contact</a>
                 </li>
-                {% if current_user.is_authenticated%}
-                <li>
-                    <a href="#">
-                        <img class="rounded-circle border" src="https://t3.ftcdn.net/jpg/00/75/33/10/360_F_75331081_axIcnWZnT1RbSsPGlgLQaCftelG158KV.jpg" alt="profile image" width="40px" height="40px">
-                    </a>
-                </li>
-                {% else%}
-                <li class="nav-item">
-                    <a class="nav-link btn m-1 text-primary" href="{{url_for('auth.signUp')}}">Signup</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link btn m-1 text-primary" href="{{url_for('auth.login')}}">Login</a>
-                </li>
+                {% if current_user.is_authenticated %}
+                    <li class="text-center">
+                        <a href="#">
+                            <img class="rounded-circle border"
+                                 src="https://t3.ftcdn.net/jpg/00/75/33/10/360_F_75331081_axIcnWZnT1RbSsPGlgLQaCftelG158KV.jpg"
+                                 alt="profile image"
+                                 width="40px"
+                                 height="40px">
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link btn m-1 text-primary"
+                           href="{{ url_for("auth.signUp") }}">Signup</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn m-1 text-primary"
+                           href="{{ url_for("auth.login") }}">Login</a>
+                    </li>
                 {% endif %}
             </ul>
         </div>

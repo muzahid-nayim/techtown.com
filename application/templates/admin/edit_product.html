@@ -1,0 +1,419 @@
+{% extends "root.html" %}
+{% block content %}
+    <!-- START HEADER  -->
+    <div class=" d-flex account-topbar bg-light justify-content-between align-items-center gap-2 d-md-none p-2">
+        <div class="topbar-left  d-flex  justify-content-start align-items-center">
+            <a class="navbar-brand d-block m-0 p-0 d-md-none"
+               href="{{ url_for("public.index") }}">
+                <h4 class="logo">
+                    <span class="T">T</span>ech<span class="T">T</span>own
+                </h4>
+            </a>
+        </div>
+        <button class="d-md-none"
+                type="button"
+                data-toggle="collapse"
+                data-target="#sidebarMenu">
+            <i class='bx bx-menu' style="font-size: 35px;"></i>
+        </button>
+    </div>
+    <!-- END HEADER  -->
+    <!-- START DASHBOARD CONTENT  -->
+    <div class="container-fluid">
+        <div class="row">
+            {% include 'helpers/_dashboard_sider.html' %}
+            <div class="col-md-9 col-lg-10 p-0">
+                <div class="container">
+                    <!-- START BRAND HEADER   -->
+                    <h3 class="my-2">Edit Product</h3>
+                    <!-- END BRAND HEADER   -->
+                    <form method="POST" action="" enctype="multipart/form-data">
+                        {{ form.hidden_tag() }}
+                        <!-- Product fields -->
+                        <div class="form-group">
+                            {{ form.first_release.label(class="form-label") }}
+                            {{ form.first_release(class="form-control") }}
+                            {% for error in form.first_release.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.model.label(class="form-label") }}
+                            {{ form.model(class="form-control") }}
+                            {% for error in form.model.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.image.label(class="form-label") }}
+                            {{ form.image(class="form-control-file") }}
+                            {% for error in form.image.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.price.label(class="form-label") }}
+                            {{ form.price(class="form-control") }}
+                            {% for error in form.price.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.colors.label(class="form-label") }}
+                            {{ form.colors(class="form-control") }}
+                            {% for error in form.colors.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.manufactured_by.label(class="form-label") }}
+                            {{ form.manufactured_by(class="form-control") }}
+                            {% for error in form.manufactured_by.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.made_in.label(class="form-label") }}
+                            {{ form.made_in(class="form-control") }}
+                            {% for error in form.made_in.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+            
+                        <!-- Connectivity fields -->
+                        <h4>Connectivity</h4>
+                        <div class="form-group">
+                            {{ form.network.label(class="form-label") }}
+                            {{ form.network(class="form-control") }}
+                            {% for error in form.network.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.sim.label(class="form-label") }}
+                            {{ form.sim(class="form-control") }}
+                            {% for error in form.sim.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.wlan.label(class="form-label") }}
+                            {{ form.wlan(class="form-control") }}
+                            {% for error in form.wlan.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.bluetooth.label(class="form-label") }}
+                            {{ form.bluetooth(class="form-control") }}
+                            {% for error in form.bluetooth.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.gps.label(class="form-label") }}
+                            {{ form.gps(class="form-control") }}
+                            {% for error in form.gps.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.radio.label(class="form-label") }}
+                            {{ form.radio(class="form-control") }}
+                            {% for error in form.radio.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.usb.label(class="form-label") }}
+                            {{ form.usb(class="form-control") }}
+                            {% for error in form.usb.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.otg.label(class="form-label") }}
+                            {{ form.otg(class="form-check-input") }}
+                            {% for error in form.otg.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.usb_type_c.label(class="form-label") }}
+                            {{ form.usb_type_c(class="form-check-input") }}
+                            {% for error in form.usb_type_c.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.nfc.label(class="form-label") }}
+                            {{ form.nfc(class="form-check-input") }}
+                            {% for error in form.nfc.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+            
+                        <!-- Body fields -->
+                        <h4>Body</h4>
+                        <div class="form-group">
+                            {{ form.style.label(class="form-label") }}
+                            {{ form.style(class="form-control") }}
+                            {% for error in form.style.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.material.label(class="form-label") }}
+                            {{ form.material(class="form-control") }}
+                            {% for error in form.material.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.water_resistance.label(class="form-label") }}
+                            {{ form.water_resistance(class="form-control") }}
+                            {% for error in form.water_resistance.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.dimensions.label(class="form-label") }}
+                            {{ form.dimensions(class="form-control") }}
+                            {% for error in form.dimensions.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.weight.label(class="form-label") }}
+                            {{ form.weight(class="form-control") }}
+                            {% for error in form.weight.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <!-- START DISPLAY FIELD  -->
+                        <h4>Display</h4>
+                        <div class="form-group">
+                            {{ form.size.label(class="form-label") }}
+                            {{ form.size(class="form-control") }}
+                            {% for error in form.size.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.resolution.label(class="form-label") }}
+                            {{ form.resolution(class="form-control") }}
+                            {% for error in form.resolution.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.technology.label(class="form-label") }}
+                            {{ form.technology(class="form-control") }}
+                            {% for error in form.technology.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.protection.label(class="form-label") }}
+                            {{ form.protection(class="form-control") }}
+                            {% for error in form.protection.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.features_display.label(class="form-label") }}
+                            {{ form.features_display(class="form-control") }}
+                            {% for error in form.features_display.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <!-- END DISPLAY FIELD  -->
+                        <h4>Back Camera</h4>
+                        <!-- START Back Camera fields -->
+                        <div class="form-group">
+                            {{ form.resolution_back.label(class="form-label") }}
+                            {{ form.resolution_back(class="form-control") }}
+                            {% for error in form.resolution_back.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.features_back.label(class="form-label") }}
+                            {{ form.features_back(class="form-control") }}
+                            {% for error in form.features_back.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.video_recording_back.label(class="form-label") }}
+                            {{ form.video_recording_back(class="form-control") }}
+                            {% for error in form.video_recording_back.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <!-- END Back Camera fields -->
+                        <h4>Front Camera</h4>
+                        <!-- START  Front Camera fields -->
+                        <div class="form-group">
+                            {{ form.resolution_front.label(class="form-label") }}
+                            {{ form.resolution_front(class="form-control") }}
+                            {% for error in form.resolution_front.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.features_front.label(class="form-label") }}
+                            {{ form.features_front(class="form-control") }}
+                            {% for error in form.features_front.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.video_recording_front.label(class="form-label") }}
+                            {{ form.video_recording_front(class="form-control") }}
+                            {% for error in form.video_recording_front.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <!-- END  Front Camera fields -->
+                        <h4>Battery</h4>
+                        <!-- START Battery fields -->
+                        <div class="form-group">
+                            {{ form.type_capacity.label(class="form-label") }}
+                            {{ form.type_capacity(class="form-control") }}
+                            {% for error in form.type_capacity.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.fast_charging.label(class="form-label") }}
+                            {{ form.fast_charging(class="form-control") }}
+                            {% for error in form.fast_charging.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <!-- END Battery fields -->
+                        <h4>Performance</h4>
+                        <!-- START Performance fields -->
+                        <div class="form-group">
+                            {{ form.os.label(class="form-label") }}
+                            {{ form.os(class="form-control") }}
+                            {% for error in form.os.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.chipset.label(class="form-label") }}
+                            {{ form.chipset(class="form-control") }}
+                            {% for error in form.chipset.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.processor.label(class="form-label") }}
+                            {{ form.processor(class="form-control") }}
+                            {% for error in form.processor.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.speed.label(class="form-label") }}
+                            {{ form.speed(class="form-control") }}
+                            {% for error in form.speed.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.gpu.label(class="form-label") }}
+                            {{ form.gpu(class="form-control") }}
+                            {% for error in form.gpu.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <!-- END Performance fields -->
+                        <h4>Storage</h4>
+                        <!-- START Storage fields -->
+                        <div class="form-group">
+                            {{ form.ram.label(class="form-label") }}
+                            {{ form.ram(class="form-control") }}
+                            {% for error in form.ram.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.rom.label(class="form-label") }}
+                            {{ form.rom(class="form-control") }}
+                            {% for error in form.rom.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.microsd_slot.label(class="form-label") }}
+                            {{ form.microsd_slot(class="form-control") }}
+                            {% for error in form.microsd_slot.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <!-- END Storage fields -->
+                        <h4>Sound</h4>
+                        <!-- START Sound fields -->
+                        <div class="form-group">
+                            {{ form.mm_jack.label(class="form-label") }}
+                            {{ form.mm_jack(class="form-control") }}
+                            {% for error in form.mm_jack.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.features_sound.label(class="form-label") }}
+                            {{ form.features_sound(class="form-control") }}
+                            {% for error in form.features_sound.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <!-- END Sound fields -->
+                        <h4>Security</h4>
+                        <!-- START Security fields -->
+                        <div class="form-group">
+                            {{ form.fingerprint.label(class="form-label") }}
+                            {{ form.fingerprint(class="form-control") }}
+                            {% for error in form.fingerprint.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.face_unlock.label(class="form-label") }}
+                            {{ form.face_unlock(class="form-control") }}
+                            {% for error in form.face_unlock.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <!-- END Security fields -->
+                        <h4>Other</h4>
+                        <!-- START Others fields -->
+                        <div class="form-group">
+                            {{ form.notification_light.label(class="form-label") }}
+                            {{ form.notification_light(class="form-control") }}
+                            {% for error in form.notification_light.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.sensors.label(class="form-label") }}
+                            {{ form.sensors(class="form-control") }}
+                            {% for error in form.sensors.errors %}
+                                <span class="text-danger">{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        <!-- END Others fields -->
+                        <div class="form-group mt-3">
+                            {{ form.submit(class="btn btn-primary") }}
+                        </div>
+                    </form>
+            
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END DASHBOARD CONTENT  -->
+{% endblock content %}
