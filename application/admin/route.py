@@ -111,13 +111,19 @@ def delete_brand(brand_id):
     return redirect(url_for('admin.brands'))
 # END DELETE BRAND ROUTE 
 
+def get_brand_name(brand_id):
+    brand = Brand.query.get(brand_id)
+    if brand:
+        return brand.name
+    return None
+
 # START PRODUCTS ROUTE 
 @admin.route('/admin-dashboard/products')
 @login_required
 @admin_required
 def products():
     products = Product.query.all()
-    return render_template('admin/products.html', products=products)
+    return render_template('admin/products.html', products=products, get_brand_name=get_brand_name)
 # END PRODUCTS ROUTE 
 
 
@@ -127,6 +133,9 @@ def products():
 @admin.route('/admin-dashboard/add-product', methods=['GET', 'POST'])
 def add_product():
     form = ProductForm()
+    
+    brand_choices = [(brand.id, brand.name) for brand in Brand.query.all()]
+    form.manufactured_by.choices = brand_choices
 
     if form.validate_on_submit():
         # Create the main Product record
@@ -262,6 +271,9 @@ def edit_product(product_id):
     
     form = ProductForm()
 
+    brands = Brand.query.all()
+    form.manufactured_by.choices = [(brand.id, brand.name) for brand in brands]
+    
     if form.validate_on_submit():
         # Update the main Product record
         product.first_release = form.first_release.data

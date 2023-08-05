@@ -33,8 +33,8 @@
                 </div>
                 <div class="container mt-5">
                     <div class="table-responsive">
-                        <table class="table-bordered table table-striped ">
-                            <thead class="bg-dark text-white">
+                        <table class="table-bordered table">
+                            <thead class="bg-primary text-white">
                                 <tr>
                                     <th class="px-1 rounded-start">SL</th>
                                     <th class="px-1">model</th>
@@ -104,7 +104,7 @@
                                              width="150px">
                                     {% endif %}</td>
                                     <td class="px-1">{{product.price}}</td>
-                                    <td class="px-1">{{product.manufactured_by}}</td>
+                                    <td class="px-1">{{ get_brand_name(product.manufactured_by) }}</td>
                                     <td class="px-1">{{product.made_in}}</td>
                                     <td class="px-1">{{product.first_release}}</td>
                                     <td class="px-1">{{product.colors}}</td>
@@ -150,7 +150,7 @@
                                     <td class="px-1">{{product.security.face_unlock}}</td>
                                     <td class="px-1">{{product.others.notification_light}}</td>
                                     <td class="px-1">{{product.others.sensors}}</td>
-                                    <td class="px-1 d-flex">
+                                    <td class="px-1 d-flex justify-content-center align-item-center">
                                         <form class="mx-1" action="{{ url_for('admin.delete_product', product_id=product.id) }}"
                                           method="post">
                                         <input type="hidden" name="_method" value="DELETE">

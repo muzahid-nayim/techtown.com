@@ -1,8 +1,9 @@
 
 
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, FileField, BooleanField,IntegerField
+from wtforms import StringField, SubmitField, FileField, BooleanField,IntegerField,SelectField
 from wtforms.validators import DataRequired,NumberRange
+
 
 # START ADD BRAND FORM 
 class AddBrandForm(FlaskForm):
@@ -23,7 +24,7 @@ class ProductForm(FlaskForm):
     # Product fields
     first_release = StringField('First Release', validators=[DataRequired()])
     colors = StringField('Colors', validators=[DataRequired()])
-    manufactured_by = StringField('Manufactured by', validators=[DataRequired()])
+    manufactured_by = SelectField('Manufactured by', validators=[DataRequired()], choices=[], coerce=int)
     made_in = StringField('Made in', validators=[DataRequired()])
     price = IntegerField('Price', validators=[DataRequired(), NumberRange(min=0, max=99999999)])
     model = StringField('Model', validators=[DataRequired()])
